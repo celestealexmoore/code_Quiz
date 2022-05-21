@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
     <title>Code Quiz</title>
-</head>
-<body>
-    
+  </head>
+
+  <body>
+    <header class="container text-center parent">
+      <div class="row">
+        <div id="viewScores" class="col float">
+          <button id="highscores">View Highscores</button>
+        </div>
+
+        <div class="col float">Time Left = <span id="counter"></span></div>
+      </div>
+    </header>
+
+    <div id="title" class="show container text-center parent">
+      <div class="col">
+        <h1 class="text-center display-4">Coding Quiz Challenge</h1>
+        <h4 id="description">
+          Try to answer the following 20 code-related questions in the time
+          limit. Keep in mind that wrong answers will penalize your time by 10
+          seconds!
+        </h4>
+        <button
+          type="button"
+          id="startButton"
+          class="row btn btn-outline-danger btn-lg"
+        >
+          Start Quiz
+        </button>
+      </div>
+    </div>
+
+    <main id="quiz" class="hide container parent">
+      <div class="col">
+        <h4 id="quizQuestions" class="text-center">
+          "How many licks does it take to get to the tootsie center of a tootsie
+          pop?"
+        </h4>
+
+        <div id="quizAnswers" class="text-center">
+          <ul class="list-group">
+            <!-- <li class="list-group-item active" aria-current="true">An active item</li> -->
+            <li class="list-group-item">
+              <span id="answerChoices"></span>Pick me
+            </li>
+          </ul>
+        </div>
+        <!-- need to go into JavaScript and tell it to change the aria-current to true if it is toggled.
+        on click, select. -->
+      </div>
+    </main>
+
     <script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
