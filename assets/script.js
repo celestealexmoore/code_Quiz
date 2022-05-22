@@ -1,4 +1,4 @@
-import { questionPool } from "./quizQuestions";
+import { questionPool } from "./quizQuestions.js";
 
 function startQuiz() {
   let startButton = document.getElementById("startButton");
@@ -11,7 +11,7 @@ function startQuiz() {
     description.classList.add("hide");
 
     let counter = document.getElementById("counter");
-    counter.innerHTML = 5 + ":" + 01;
+    counter.innerHTML = 5 + ":" + 1;
     startTimer();
 
     function startTimer() {
@@ -48,7 +48,7 @@ startQuiz();
 
 const quizBody = document.getElementById("quizBody");
 
-for (i = 0; i < questionPool.length; i++) {
+for (let i = 0; i < questionPool.length; i++) {
     let div = document.createElement("div");
     div.setAttribute("id", "quizQuestions");
     div.setAttribute("class", "text-center");
