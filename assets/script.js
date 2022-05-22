@@ -21,27 +21,26 @@ function startQuiz() {
         m = m - 1;
       }
       if (m < 0) {
-          presentTime.innerHTML = "00"
+        presentTime.innerHTML = "00";
         return;
       }
 
       document.getElementById("counter").innerHTML = m + ":" + s;
-        setTimeout(startTimer, 1000);
+      setTimeout(startTimer, 1000);
 
-        function checkSecond(sec) {
-          if (sec < 10 && sec >= 0) {
-            sec = "0" + sec;
-          } // add zero in front of numbers < 10
-          if (sec < 0) {
-            sec = "59";
-          }
-          return sec;
+      function checkSecond(sec) {
+        if (sec < 10 && sec >= 0) {
+          sec = "0" + sec;
+        } // add zero in front of numbers < 10
+        if (sec < 0) {
+          sec = "59";
         }
+        return sec;
+      }
     }
   };
 }
 startQuiz();
-
 
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
