@@ -233,22 +233,29 @@ for (i = 0; i < questionPool.length; i++) {
 let div2 = document.createElement('div');
     div2.setAttribute('id', 'quizAnswers');
     div.setAttribute('class', 'text-center');
+    
     let ul = document.createElement('ul');
-    ul.setAttribute('class', 'list-group');
+    ul.setAttribute('class', 'list-group, col');
     let li = document.createElement('li');
-    li.setAttribute('class', 'list-group-item');
+    li.setAttribute('class', 'list-group-item, col');
     let span = document.createElement('span');
     span.setAttribute('id', 'answerChoices');
-    let p = document.createElement('p');
-    poolOfAnswers = questionPool[i]['answers'];
-    // p.innerHTML = questionPool[i]['answers']
+    let p1 = document.createElement('p');
+    let p2 = document.createElement('p');
+
+    p1.textContent = Object.keys(questionPool[i]['answers']).join('');
+    p2.textContent = Object.values(questionPool[i]['answers']).join('');
+
+    let poolOfAnswers = questionPool[i]['answers'];
+    console.log(poolOfAnswers)
 
     //append children
     quizBody.appendChild(div2);
     div2.appendChild(ul);
     ul.appendChild(li);
     li.appendChild(span);
-    li.appendChild(p);
+    li.appendChild(p1);
+    li.appendChild(p2);
 }
 
 // for (j = 0; j < questionPool.length; i++)
