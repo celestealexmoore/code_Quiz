@@ -15,31 +15,33 @@
   </head>
 
   <body>
-    <header class="container text-center parent">
+    <header class="container parent text-center">
       <div class="row">
-        <div id="viewScores" class="col float">
+        <div id="viewScores" class="col-6">
           <button id="highscores">View Highscores</button>
         </div>
 
-        <div class="col float">Time Left = <span id="counter"></span></div>
+        <div class="col-6">Time Left = <span id="counter"></span></div>
       </div>
     </header>
 
-    <div id="title" class="show container text-center parent">
-      <div class="col">
-        <h1 class="text-center display-4">Coding Quiz Challenge</h1>
-        <h4 id="description">
-          Try to answer the following 20 code-related questions in the time
-          limit. Keep in mind that wrong answers will penalize your time by 10
-          seconds!
-        </h4>
-        <button
-          type="button"
-          id="startButton"
-          class="row btn btn-outline-danger btn-lg"
-        >
-          Start Quiz
-        </button>
+    <div id="title" class="show parent jumbotron text-center">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center display-4">Coding Quiz Challenge</h1>
+          <h4 id="description">
+            Try to answer the following 20 code-related questions in the time
+            limit. Keep in mind that wrong answers will penalize your time by 10
+            seconds!
+          </h4>
+          <button
+            type="button"
+            id="startButton"
+            class="row btn btn-outline-danger btn-lg"
+          >
+            Start Quiz
+          </button>
+        </div>
       </div>
     </div>
 
