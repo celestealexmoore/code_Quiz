@@ -10,8 +10,8 @@ body{
     text-align: center;
 }
 
-#quizQuestions {
-    margin: 30px 0px;
+#quizBody {
+   padding: 30px;
 }
 
 .hide {
@@ -21,3 +21,33 @@ body{
 .show {
     visibility: visible;
 }
+
+.break {
+    border-top: gray solid 1px;
+}
+
+.button {
+    border: gray 1px solid;
+    width: 40px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    background-color: gray;
+    color: white;
+}
+
+.answers {
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* .card1{
+    background-color: red;
+}
+
+.card2{
+    background-color: blue;
+} */

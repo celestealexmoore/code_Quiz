@@ -1,26 +1,35 @@
 import { questionPool } from "./quizQuestions.js";
-let letterChoices;
-let answers;
-let ul1;
-let ul2;
+let letterChoicesA,
+  letterChoicesB,
+  letterChoicesC,
+  letterChoicesD,
+  answersA,
+  answersB,
+  answersC,
+  answersD,
+  ul1,
+  ul2,
+  i,
+  j,
+  k;
 
 function startQuiz() {
-  let startButton = document.getElementById("startButton");
-  let quiz = document.getElementById("quiz");
-  let description = document.getElementById("description");
+  const startButton = document.getElementById("startButton");
+  const quiz = document.getElementById("quiz");
+  const description = document.getElementById("description");
 
   startButton.onclick = function () {
     quiz.classList.toggle("hide");
     startButton.classList.add("hide");
     description.classList.add("hide");
 
-    let counter = document.getElementById("counter");
+    const counter = document.getElementById("counter");
     counter.innerHTML = 5 + ":" + 1;
     startTimer();
 
     function startTimer() {
-      let presentTime = document.getElementById("counter");
-      let timeArray = presentTime.innerHTML.split(/[:]+/);
+      const presentTime = document.getElementById("counter");
+      const timeArray = presentTime.innerHTML.split(/[:]+/);
       let m = timeArray[0];
       let s = checkSecond(timeArray[1] - 1);
       if (s == 59) {
@@ -51,27 +60,32 @@ startQuiz();
 // create divs for questions and answers, append to the body
 const quiz = document.getElementById("quiz");
 
-for (let i = 0; i < questionPool.length; i++) {
-  let letters = Object.keys(questionPool[i]["answers"]).join("");
-  let choices = Object.values(questionPool[i]["answers"]).join("");
+ul1 = document.createElement("ul");
+ul2 = document.createElement("ul");
+ul1.setAttribute("class", "list-group ul");
+ul2.setAttribute("class", "list-group ul");
+
+for (i = 0; i < questionPool.length; i++) {
+  const letters = Object.keys(questionPool[i]["answers"]);
+  const choices = Object.values(questionPool[i]["answers"]);
 
   const quizBody = document.createElement("div");
   quizBody.setAttribute("id", "quizBody");
-  quizBody.setAttribute("class", "col-12");
+  quizBody.setAttribute("class", "col-12 break");
 
-  let quizQuestions = document.createElement("div");
+  const quizQuestions = document.createElement("div");
   quizQuestions.setAttribute("id", "quizQuestions");
   quizQuestions.setAttribute("class", "h4");
-  quizQuestions.innerHTML = questionPool[i].question;
+  quizQuestions.innerHTML = i + 1 + ". " + questionPool[i].question;
 
-  let quizAnswers = document.createElement("div");
+  const quizAnswers = document.createElement("div");
   quizAnswers.setAttribute("class", "row");
 
   //cards the letter answers and answers go in.
-  let card1 = document.createElement("div");
-  card1.setAttribute("class", "col-2");
-  let card2 = document.createElement("div");
-  card2.setAttribute("class", "col-10");
+  const card1 = document.createElement("div");
+  card1.setAttribute("class", "col-2 card1");
+  const card2 = document.createElement("div");
+  card2.setAttribute("class", "col-10 card2");
 
   //append children
   quiz.appendChild(quizBody);
@@ -81,31 +95,70 @@ for (let i = 0; i < questionPool.length; i++) {
   quizAnswers.appendChild(card2);
 
   //answer loops
-  for (let j = 0; j < letters.length; j++) {
-    ul1 = document.createElement("ul");
-    ul1.setAttribute("class", "list-group");
-    letterChoices = document.createElement("li");
-    letterChoices.setAttribute(
+  for (j = 0; j < letters.length; j++) {
+    letterChoicesA = document.createElement("button");
+    letterChoicesA.setAttribute("type", "button");
+    letterChoicesA.setAttribute(
       "class",
-      "list-group-item list-group-item-action"
+      "list-group-item list-group-item-action button"
     );
-    letterChoices.innerHTML = letters;
-    console.log(letterChoices.innerHTML);
+    letterChoicesA.innerHTML = letters[0];
+    // letterChoicesA.click(function() {letterChoicesA.setAttribute("style", 'backgroundColor("gray")')})
+
+    letterChoicesB = document.createElement("button");
+    letterChoicesB.setAttribute("type", "button");
+    letterChoicesB.setAttribute(
+      "class",
+      "list-group-item list-group-item-action button"
+    );
+    letterChoicesB.innerHTML = letters[1];
+
+    letterChoicesC = document.createElement("button");
+    letterChoicesC.setAttribute("type", "button");
+    letterChoicesC.setAttribute(
+      "class",
+      "list-group-item list-group-item-action button"
+    );
+    letterChoicesC.innerHTML = letters[2];
+
+    letterChoicesD = document.createElement("button");
+    letterChoicesD.setAttribute("type", "button");
+    letterChoicesD.setAttribute(
+      "class",
+      "list-group-item list-group-item-action button"
+    );
+    letterChoicesD.innerHTML = letters[3];
   }
 
-  for (let k = 0; k < choices.length; k++) {
-    ul2 = document.createElement("ul");
-    ul2.setAttribute("class", "list-group");
-    answers = document.createElement("li");
-    answers.setAttribute("class", "list-group-item");
-    answers.innerHTML = choices;
+  for (k = 0; k < 1; k++) {
+    answersA = document.createElement("li");
+    answersA.setAttribute("class", "list-group-item answers");
+    answersA.innerHTML = choices[0];
+
+    answersB = document.createElement("li");
+    answersB.setAttribute("class", "list-group-item answers");
+    answersB.innerHTML = choices[1];
+
+    answersC = document.createElement("li");
+    answersC.setAttribute("class", "list-group-item answers");
+    answersC.innerHTML = choices[2];
+
+    answersD = document.createElement("li");
+    answersD.setAttribute("class", "list-group-item answers");
+    answersD.innerHTML = choices[3];
   }
 
   //append children
   card1.appendChild(ul1);
-  card1.appendChild(letterChoices);
+  card1.appendChild(letterChoicesA);
+  card1.appendChild(letterChoicesB);
+  card1.appendChild(letterChoicesC);
+  card1.appendChild(letterChoicesD);
   card2.appendChild(ul2);
-  card2.appendChild(answers);
+  card2.appendChild(answersA);
+  card2.appendChild(answersB);
+  card2.appendChild(answersC);
+  card2.appendChild(answersD);
 }
 
 /*
